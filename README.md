@@ -20,3 +20,11 @@ SW **재사용성**, **호환성**, **유지 보수성**을 보장
 **Liskov Substitution Principle  : 리스코프 치환 원칙 **
 <br>
 자식이 부모의 자리에 항상 교체될 수 있어야 함.
+
+**ISP(Interface Segregation Principle) : 인터페이스 분리 원칙**
+<br>
+인터페이스는 그 인터페이스를 사용하는 클라이언트를 기준으로 분리해야 한다.
+
+**DIP(Dependency Inversion Principle) : 의존 역전 원칙**
+<br>
+고수준 모듈은 저수준 모듈의 구현에 의존해서는 안된다.
