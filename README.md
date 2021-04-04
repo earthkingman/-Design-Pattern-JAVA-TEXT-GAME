@@ -17,7 +17,7 @@ SW **재사용성**, **호환성**, **유지 보수성**을 보장
 <br>
 확장에는 열려 있어야 하고 변경에는 닫혀 있어야 한다.
 
-**Liskov Substitution Principle  : 리스코프 치환 원칙 **
+**Liskov Substitution Principle  : 리스코프 치환 원칙**
 <br>
 자식이 부모의 자리에 항상 교체될 수 있어야 함.
 
