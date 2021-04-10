@@ -34,6 +34,12 @@
 
 <img width="530" alt="스크린샷 2021-04-09 오후 4 33 42" src="https://user-images.githubusercontent.com/48669085/114145862-df23d400-9951-11eb-84b7-a109508a68a2.png">
 
+## 유스케이스
+
+
+<img width="610" alt="스크린샷 2021-04-09 오후 4 33 51" src="https://user-images.githubusercontent.com/48669085/114145868-e0550100-9951-11eb-916f-28ace3a47aa5.png">
+
+
 ## 스트레티지 패턴 적용
 
 
@@ -53,9 +59,6 @@
 
 
 ## 데코레이터 패턴 적용
-
-
-<img width="610" alt="스크린샷 2021-04-09 오후 4 33 51" src="https://user-images.githubusercontent.com/48669085/114145868-e0550100-9951-11eb-916f-28ace3a47aa5.png">
 
 <img width="539" alt="스크린샷 2021-04-09 오후 4 33 59" src="https://user-images.githubusercontent.com/48669085/114145877-e0ed9780-9951-11eb-8431-b9f6abcc1e46.png">
 
