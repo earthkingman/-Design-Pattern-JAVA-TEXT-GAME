@@ -178,6 +178,41 @@ Cost()와 Increase_fishing()은 Tool클래스에서 추상 메소드였기 때�
 <img width="457" alt="스크린샷 2021-04-09 오후 4 34 33" src="https://user-images.githubusercontent.com/48669085/114145891-e34ff180-9951-11eb-9d52-316b5132a95b.png">
 
 
+### 코드
+
+<img width="357" alt="스크린샷 2021-04-11 오후 5 10 03" src="https://user-images.githubusercontent.com/48669085/114297006-3ad49580-9ae9-11eb-9070-28f45de9011a.png">
+<img width="629" alt="스크린샷 2021-04-11 오후 5 10 08" src="https://user-images.githubusercontent.com/48669085/114297008-3c9e5900-9ae9-11eb-83a9-91927fb625f9.png">
+Sea, river, lake 각 서브 클래스에서는 catchFish()메소드를 오버라이드 하지만, Fishing()메소드는 FishingPlace에서 정의했던 것을 그대로 사용한다.
+Fishing()메소드에는 낚시를 시작하고 끝낼때까지의 전 과정이 기술되어 있다.
+낚시대를 낚시터에 던지고 물고기를 잡았을 경우 fish.tryToCatchFish()가 1을 반환해 물고기의 가격과 이름을 출력하게 하였으며, 각각의 낚시터마다 잡히는 물고기들의 특징(주의점)을
+<img width="303" alt="스크린샷 2021-04-11 오후 5 10 13" src="https://user-images.githubusercontent.com/48669085/114297009-3f00b300-9ae9-11eb-987f-c1aa4a15ad98.png">
+sea클래스는 FishingPlace클래스를 상속 받고, 추상 오퍼레이션인 catchFish()메소드를 구현한다.
+낚시 능력인 ability가 10보다 작을 경우 Shad() 물고기 객체를 반환한다.
+ability가 10보다 클 경우에는 Tuna()객체를 반환한다.
+<img width="486" alt="스크린샷 2021-04-11 오후 5 10 18" src="https://user-images.githubusercontent.com/48669085/114297011-41fba380-9ae9-11eb-8382-36e423173593.png">
+Lake클래스도 마찬가지로 FishingPlace클래스를 상속받고 catchFish()를 구현한다.
+낚시 능력이 10보다 작을 경우에는 Catfish()객체를 반환한다.
+<img width="486" alt="스크린샷 2021-04-11 오후 5 10 28" src="https://user-images.githubusercontent.com/48669085/114297013-42943a00-9ae9-11eb-998f-5b4ab83a8794.png">
+River클래스도 FishingPlace클래스를 상속받고 catchFish()메소드를 구현한다.
+ability가 10보다 작을 경우 Carp() 객체를 반환한다.
+<img width="542" alt="스크린샷 2021-04-11 오후 5 10 41" src="https://user-images.githubusercontent.com/48669085/114297014-432cd080-9ae9-11eb-9529-ee9056532850.png">
+<img width="530" alt="스크린샷 2021-04-11 오후 5 11 17" src="https://user-images.githubusercontent.com/48669085/114297015-432cd080-9ae9-11eb-9b5d-15ff9bbf4053.png">
+Fish클래스 안의 tryToCatchFish()메소드는 랜덤함수를 실행시켜 40%로 확률로 success()메소드를, 60% 확률로 fail()메소드를 반환한다. 
+Success()메소드는 1을 반환하고 fail()메소드는 0을 반환한다. success()메소드가 실행될 경우에만 물고기를 잡았다고 출력된다.
+Note()메소드는 각 낚시터에서 잡히는 물고기들의 주의점을 알려준다. 강물고기의 경우에 추상 클래스에 구현되어 있는 “이 물고기는 기생충이 있을 확률이 있습니다”를 오버라이딩 하지 않고 바로 출력한다.
+<img width="599" alt="스크린샷 2021-04-11 오후 5 11 34" src="https://user-images.githubusercontent.com/48669085/114297016-43c56700-9ae9-11eb-9552-139ee2cd3df8.png">
+<img width="614" alt="스크린샷 2021-04-11 오후 5 11 42" src="https://user-images.githubusercontent.com/48669085/114297017-445dfd80-9ae9-11eb-9cd0-bc2f7e990493.png">
+TryToCatchFish()안의 if문에서 n>5일 경우 success()메소드가 실행된다.
+Catfish()를 잡을 확률을 낮춰주기 위해서 if문 안의 조건을 n>5로 변경해 메소드를 오버라이딩 하였다.
+잡기 어려워 졌기 때문에 succes()메소드와 fail()메소드도 오버라이딩 해준다.
+낚시터에 따라 출력되는 주의사항이 다르기 때문에 note()메소드를 오버라이딩 하여 호수물고기는 “호수에서 낚시하면 경찰에 잡혀갑니다. 조심하세요”를 출력하게 한다.
+<img width="425" alt="스크린샷 2021-04-11 오후 5 12 02" src="https://user-images.githubusercontent.com/48669085/114297022-49bb4800-9ae9-11eb-8ee8-641502224b17.png">
+<img width="570" alt="스크린샷 2021-04-11 오후 5 12 06" src="https://user-images.githubusercontent.com/48669085/114297024-4aec7500-9ae9-11eb-9603-0ef5b07f99f8.png">
+Note()메소드만 오버라이딩 하여 바다 낚시터에서 잡히는 물고기에 맞게 구현해준다.
+“이 물고기는 바다에 살아서 찌린내가 많이 납니다”라고 출력된다.
+
+
+## 유스케이스
 
 <img width="602" alt="스크린샷 2021-04-09 오후 4 34 40" src="https://user-images.githubusercontent.com/48669085/114145894-e34ff180-9951-11eb-88c1-400cc46e493e.png">
 
@@ -200,6 +235,8 @@ Cost()와 Increase_fishing()은 Tool클래스에서 추상 메소드였기 때�
 템플릿 메소드 패턴을 적용하면 템플릿 메소드인 prepareRecipe()에서 요리과정 알고리즘의 골격을 정의하고, 바뀌는 특정 단계만 서브 클래스 BraisedFish, GrilledFish, Sushi에서 구현한다.
 
 <img width="392" alt="스크린샷 2021-04-09 오후 4 34 46" src="https://user-images.githubusercontent.com/48669085/114145895-e3e88800-9951-11eb-922d-6383052c9fd5.png">
+
+
 
 
 ## 유스케이스
