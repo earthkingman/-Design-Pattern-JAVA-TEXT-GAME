@@ -37,30 +37,6 @@
 
 # 분석 및 설계
 
-## 유스케이스
-
-
-<img width="610" alt="스크린샷 2021-04-09 오후 4 33 36" src="https://user-images.githubusercontent.com/48669085/114145856-db904d00-9951-11eb-921f-497af936307b.png">
-
-### 스테이트 패턴 적용
-
-
-스테이트 패턴은 객체가 특정 상태에 따라 행위를 달리하는 상황에서, 상태를 객체화 하여 상태가 행동을 할 수 있도록 위임하는 패턴이다. <br>본 프로젝트에서는 날씨 상태를 객체화 하여 날씨 상태에서 행동을 가능케 한다.
-
-
-**문제점**
-
-
-프로그램 내부적으로 낚시하기 행동을 시행할 때 마다 날씨 변화가 필요하다.
-
-날씨 변화는 현실 세계의 변덕스러운 날씨를 반영하기 위하여 날씨가 밝아지면 화창한 날이 되고 화창한 날에서 흐려지면 선선한 날이 되는 것과 같이 동일하게 구현하기 위하여 스테이트 패턴을 사용하게 되었다.
-
-
-**해결 방안**
-
-
-스테이트 패턴을 사용하여 날씨 특정 상태가 행동을 할 수 있도록 구현한다 날씨가 좋아지는 함수와 날씨가 악화되는 함수 shining(), cool(), clouding() 를 구현하여 특정 상태가 변할 수 있도록 한다. 상태가 변화할 때 원하는 상태로 변하기 위하여 State 인터페이스를 상속받는 클래스 CoolDay , RainyDay, SunnyDay 즉 날씨 상태 클래스에서 알맞게 구현한다.
-
 
 <img width="530" alt="스크린샷 2021-04-09 오후 4 33 42" src="https://user-images.githubusercontent.com/48669085/114145862-df23d400-9951-11eb-84b7-a109508a68a2.png">
 
@@ -89,6 +65,35 @@
 
 <img width="539" alt="스크린샷 2021-04-09 오후 4 33 59" src="https://user-images.githubusercontent.com/48669085/114145877-e0ed9780-9951-11eb-8431-b9f6abcc1e46.png">
 
+### 코드
+
+<img width="240" alt="스크린샷 2021-04-11 오후 4 44 03" src="https://user-images.githubusercontent.com/48669085/114296283-740b0680-9ae5-11eb-9ff2-70439489bb13.png">
+
+<img width="575" alt="스크린샷 2021-04-11 오후 4 44 19" src="https://user-images.githubusercontent.com/48669085/114296287-75d4ca00-9ae5-11eb-8521-8c10d272a80d.png">
+
+<img width="636" alt="스크린샷 2021-04-11 오후 4 44 25" src="https://user-images.githubusercontent.com/48669085/114296290-779e8d80-9ae5-11eb-9579-5a7031b7686a.png">
+
+
+추상클래스 Man클래스이다. 캐릭터에 기본적으로 들어가야 할 이름, 낚시 능력, 돈이 인스턴스 변수로 들어가 있고 FishingStrategy 인터페이스 형식의 fishingStrategy 레퍼런스 변수를 선언한다. FishMan클래스에서 이 변수를 상속받는다.
+
+
+
+<img width="588" alt="스크린샷 2021-04-11 오후 4 49 05" src="https://user-images.githubusercontent.com/48669085/114296378-1925df00-9ae6-11eb-8017-1e73d1b13526.png">
+Man클래스를 상속받는 FishMan클래스이다.
+<img width="335" alt="스크린샷 2021-04-11 오후 4 49 23" src="https://user-images.githubusercontent.com/48669085/114296381-1b883900-9ae6-11eb-877c-7eb4815df8d9.png">
+변경되는 부분인 미끼를 사용하는 기능을 따로 분리하여 인터페이스로 구현한다.
+하위클래스에서 fishing()메소드를 구현한다.
+<img width="494" alt="스크린샷 2021-04-11 오후 4 49 31" src="https://user-images.githubusercontent.com/48669085/114296382-1c20cf80-9ae6-11eb-85c2-f1cea564fe4a.png">
+EarthwormStrategy클래스는 지렁이 미끼를 사용한다.
+man.setMoney(-50)으로 50원을 지불하게 하고 man.setFishing()으로 낚시 능력을 1 증가하게 한다.
+
+<img width="610" alt="스크린샷 2021-04-11 오후 4 49 50" src="https://user-images.githubusercontent.com/48669085/114296383-1cb96600-9ae6-11eb-86f0-5e0f5b1d2729.png">
+ShrimpStrategy메소드는 새우 미끼를 사용한다.
+지불하는 돈과 올라가는 낚시 능력만 달라질뿐 메소드는 위와 거의 동일하다.
+
+<img width="631" alt="스크린샷 2021-04-11 오후 4 50 06" src="https://user-images.githubusercontent.com/48669085/114296384-1dea9300-9ae6-11eb-9f62-3fdc60338a4f.png">
+ SquidStrategy클래스는 오징어 미끼를 사용한다.
+마찬가지로 지불하는 돈과 올라가는 낚시 능력만 달라질뿐 메소드는 거의 동일하다.
 
 ## 유스케이스
 
@@ -167,6 +172,31 @@
 템플릿 메소드 패턴을 적용하면 템플릿 메소드인 prepareRecipe()에서 요리과정 알고리즘의 골격을 정의하고, 바뀌는 특정 단계만 서브 클래스 BraisedFish, GrilledFish, Sushi에서 구현한다.
 
 <img width="392" alt="스크린샷 2021-04-09 오후 4 34 46" src="https://user-images.githubusercontent.com/48669085/114145895-e3e88800-9951-11eb-922d-6383052c9fd5.png">
+
+
+## 유스케이스
+
+
+<img width="610" alt="스크린샷 2021-04-09 오후 4 33 36" src="https://user-images.githubusercontent.com/48669085/114145856-db904d00-9951-11eb-921f-497af936307b.png">
+
+### 스테이트 패턴 적용
+
+
+스테이트 패턴은 객체가 특정 상태에 따라 행위를 달리하는 상황에서, 상태를 객체화 하여 상태가 행동을 할 수 있도록 위임하는 패턴이다. <br>본 프로젝트에서는 날씨 상태를 객체화 하여 날씨 상태에서 행동을 가능케 한다.
+
+
+**문제점**
+
+
+프로그램 내부적으로 낚시하기 행동을 시행할 때 마다 날씨 변화가 필요하다.
+
+날씨 변화는 현실 세계의 변덕스러운 날씨를 반영하기 위하여 날씨가 밝아지면 화창한 날이 되고 화창한 날에서 흐려지면 선선한 날이 되는 것과 같이 동일하게 구현하기 위하여 스테이트 패턴을 사용하게 되었다.
+
+
+**해결 방안**
+
+
+스테이트 패턴을 사용하여 날씨 특정 상태가 행동을 할 수 있도록 구현한다 날씨가 좋아지는 함수와 날씨가 악화되는 함수 shining(), cool(), clouding() 를 구현하여 특정 상태가 변할 수 있도록 한다. 상태가 변화할 때 원하는 상태로 변하기 위하여 State 인터페이스를 상속받는 클래스 CoolDay , RainyDay, SunnyDay 즉 날씨 상태 클래스에서 알맞게 구현한다.
 
 
 
