@@ -121,6 +121,34 @@ ShrimpStrategy메소드는 새우 미끼를 사용한다.
 
 <img width="503" alt="스크린샷 2021-04-09 오후 4 34 13" src="https://user-images.githubusercontent.com/48669085/114145885-e2b75b00-9951-11eb-87ba-e39386307f27.png">
 
+### 코드
+
+
+<img width="235" alt="스크린샷 2021-04-11 오후 4 57 06" src="https://user-images.githubusercontent.com/48669085/114296612-46bf5800-9ae7-11eb-808e-5a19620dc2ce.png">
+<img width="447" alt="스크린샷 2021-04-11 오후 4 57 12" src="https://user-images.githubusercontent.com/48669085/114296618-4921b200-9ae7-11eb-8dba-e946ec2b72b8.png">
+Tool클래스는 추상 구성요소이다.
+getDescription()은 구현되어 있지만 Cost()와 Increase_fishing()은 서브 클래스에서 구현해야 한다.
+<img width="340" alt="스크린샷 2021-04-11 오후 4 57 18" src="https://user-images.githubusercontent.com/48669085/114296619-4a52df00-9ae7-11eb-9676-713b2980c7a0.png">
+구상 구성요소 Tool_FishingRod클래스는 Tool클래스를 확장한다. 낚시도구Tool 중 낚시대 클래스이다.
+클래스 생성자 부분에서 Tool로부터 상속받은 Description, cost, upgrade 변수 값을 설정한다.
+Cost()에서는 낚시대 가격을 Increase_fishing()에서는 업그레이드되는 낚시능력치를 리턴한다.
+<img width="293" alt="스크린샷 2021-04-11 오후 4 57 24" src="https://user-images.githubusercontent.com/48669085/114296620-4b840c00-9ae7-11eb-9161-295fb2cbaa9c.png">
+위의 Too_fishingRod 클래스와 동일하다. 낚시도구 Tool 중에 찌 클래스이다.
+클래스 생성자에서 Tool에서 상속받은 Description, cost, upgrade 변수를 설정해주고 Cost(), Increase_fishing()에서 cost와 upgrade변수를 리턴한다.
+<img width="337" alt="스크린샷 2021-04-11 오후 4 57 30" src="https://user-images.githubusercontent.com/48669085/114296621-4b840c00-9ae7-11eb-9062-514a0847c4a7.png">
+마찬가지로 낚시도구 Tool클래스를 상속받아 확장하는 Tool_reel 릴 클래스 이다.
+클래스 생성자에서 상속받은 인스턴스 변수인 Description, Cost, Increase_fishing 값을 설정하고, Cost(), Increase_fishing()에서 cost, upgrade를 리턴한다.
+<img width="390" alt="스크린샷 2021-04-11 오후 4 57 34" src="https://user-images.githubusercontent.com/48669085/114296623-4c1ca280-9ae7-11eb-8285-eedf7dcd1612.png">
+AddDecorator클래스는 추상 데코레이터 클래스이다.
+Tool 객체가 들어갈 자리에 들어갈 수 있어야 하므로 Tool객체를 확장한다.
+AddDecrorator을 구현하는 서브 클래스들이 getDescription()메소드를 새로 구현하게 하기 위해 추상 메소드로 선언한다.
+<img width="576" alt="스크린샷 2021-04-11 오후 4 58 00" src="https://user-images.githubusercontent.com/48669085/114296624-4cb53900-9ae7-11eb-8e66-ba069051cfea.png">
+Masterhand 클래스는 구상 데코레이터 클래스이다.
+Masterhand 내 인스턴스에는 감싸고자 하는 낚시도구, Tool을 저장하기 위한 인스턴스 변수가 있고, 인스턴스 변수를 감싸고자 하는 객체로 설정하기 위한 생성자가 있다.
+데코레이터의 생성자에 감싸고자하는 낚시도구 개체를 전달하는 방식을 사용한다.
+GetDescription()은 장식하고 있는 객체에 작업을 위임한 다음 그 결과에 “장인의 손길이 담긴”을 더한 결과를 리턴한다.
+Cost()와 Increase_fishing()은 Tool클래스에서 추상 메소드였기 때문에 각각 구현해준다.
+
 
 ## 유스케이스
 
