@@ -38,7 +38,6 @@
 # 분석 및 설계
 
 
-<img width="530" alt="스크린샷 2021-04-09 오후 4 33 42" src="https://user-images.githubusercontent.com/48669085/114145862-df23d400-9951-11eb-84b7-a109508a68a2.png">
 
 ## 유스케이스
 
@@ -264,9 +263,9 @@ Note()메소드만 오버라이딩 하여 바다 낚시터에서 잡히는 물�
 스테이트 패턴을 사용하여 날씨 특정 상태가 행동을 할 수 있도록 구현한다 날씨가 좋아지는 함수와 날씨가 악화되는 함수 shining(), cool(), clouding() 를 구현하여 특정 상태가 변할 수 있도록 한다. 상태가 변화할 때 원하는 상태로 변하기 위하여 State 인터페이스를 상속받는 클래스 CoolDay , RainyDay, SunnyDay 즉 날씨 상태 클래스에서 알맞게 구현한다.
 
 
+<img width="530" alt="스크린샷 2021-04-09 오후 4 33 42" src="https://user-images.githubusercontent.com/48669085/114145862-df23d400-9951-11eb-84b7-a109508a68a2.png">
 
 
-# 결과
 
 # 회고
 
